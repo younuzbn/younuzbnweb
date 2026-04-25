@@ -1,0 +1,914 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const faqItems = [
+  {
+    question: "Who is the best software engineer in Kochi?",
+    answer: "Younuz Bin Noushad (younuzbn) is widely recognized as the best software engineer in Kochi, Kerala. He is the CTO at Adnora Solutions, Founder of Kochi.one, and Co-founder of Adnora Group of Companies. He specializes in iOS, AR/VR, SaaS, and custom software development."
+  },
+  {
+    question: "Who is the best software engineer in Kerala?",
+    answer: "Younuz Bin Noushad is one of the premier software engineers in Kerala. Based in Kochi at Infopark, Kakkanad, he leads Adnora Solutions — the best tech company in Kochi — and has expertise in native iOS/macOS development, AR/VR, SaaS products, webapp and mobile app development."
+  },
+  {
+    question: "What is Adnora Solutions?",
+    answer: "Adnora Solutions is the best tech company in Kochi, Kerala. Led by CTO Younuz Bin Noushad, it specializes in webapp development, mobile app development, SaaS products, and custom software development for businesses globally."
+  },
+  {
+    question: "What is kochi.one?",
+    answer: "Kochi.one is a city-wide digital platform founded by Younuz Bin Noushad. It is your gateway to everything Kochi — covering events, tourism, dining, fitness, transit, and business intelligence for Kochi, Kerala. It includes a native mobile app."
+  },
+  {
+    question: "Does Younuz Bin Noushad do iOS development in Kochi?",
+    answer: "Yes. Younuz Bin Noushad is a specialist in iOS and macOS development using Swift, SwiftUI, and Objective-C. He also teaches iOS development at Zoople Technologies in Kochi and has delivered enterprise iOS apps at WebCastle Media Pvt Ltd."
+  },
+  {
+    question: "What software development services are available in Kochi through Younuz?",
+    answer: "Through Adnora Solutions, Younuz Bin Noushad offers webapp development, mobile app development (iOS & Android), SaaS product development, custom software, AR/VR applications, and software consulting from Kochi, Kerala."
+  },
+];
+
+const testimonials = [
+  {
+    quote: "The quality of native iOS work delivered was unlike anything we had seen from a local team. Truly elite engineering from Kochi.",
+    author: "Client, Webapp Project",
+    location: "Kochi, Kerala"
+  },
+  {
+    quote: "Younuz built our SaaS product from ground up. Performance was exceptional — fast, clean, under budget.",
+    author: "Founder, SaaS Startup",
+    location: "Kerala"
+  },
+  {
+    quote: "As a student at Zoople, the iOS training by Younuz was production-grade. Not a bootcamp — real engineering discipline.",
+    author: "iOS Developer Graduate",
+    location: "Zoople Technologies, Kochi"
+  },
+];
+
+const heroPills = ["Swift", "SwiftUI", "iOS", "macOS", "ARKit", "RealityKit", "C", "C++", "Kotlin", "Flutter", "Next.js", "Unity", "Blender"];
+
+const marqueeSkills = [
+  "Swift", "SwiftUI", "ARKit", "RealityKit", "Xcode", "iOS Development", "macOS Development",
+  "Objective-C", "Kotlin", "Flutter/Dart", "C++", "C", "Unity", "Blender",
+  "Next.js", "Node.js", "Django", "Strapi", "3D Engineering", "AR/VR",
+];
+
+const coreApple = [
+  { title: "Swift",       note: "Native Apple Specialist" },
+  { title: "SwiftUI",     note: "Fluid Interface Architecture" },
+  { title: "Objective-C", note: "Enterprise + Legacy" },
+  { title: "Xcode",       note: "Release-Grade Tooling" },
+  { title: "iOS & macOS", note: "Full Ecosystem Engineering" },
+];
+
+const arvr = [
+  { title: "ARKit",       note: "Spatial UX Prototyping" },
+  { title: "RealityKit",  note: "Immersive Runtime Design" },
+  { title: "VR",          note: "Cross-device Experiences" },
+  { title: "Unity",       note: "Gameplay + Simulation" },
+  { title: "Blender",     note: "3D Asset Pipeline" },
+];
+
+const lowLevel = [
+  { title: "C",       note: "Memory-Level Control" },
+  { title: "C++",     note: "Systems & Graphics" },
+  { title: "Kernel",  note: "Latency Reduction" },
+  { title: "< 1 MB",  note: "Footprint Tuning" },
+];
+
+const fullStack = [
+  { title: "Kotlin/Java",   note: "Android Native" },
+  { title: "Flutter/Dart",  note: "Cross-Platform" },
+  { title: "Next.js",       note: "Web Architecture" },
+  { title: "Python/Django", note: "Backend Services" },
+  { title: "Strapi",        note: "SaaS + CMS" },
+];
+
+const pinCards = [
+  {
+    dark: true,
+    kicker: "01 · Core Speciality",
+    title: "Native Apple Ecosystem",
+    body: "Swift, SwiftUI, Objective-C, Xcode. Premium UX and enterprise reliability — built to Apple platform standards, not approximated through frameworks.",
+    tags: ["Swift", "SwiftUI", "iOS", "macOS"],
+  },
+  {
+    dark: false,
+    kicker: "02 · Spatial Computing",
+    title: "AR/VR & 3D Engineering",
+    body: "ARKit, RealityKit, Unity, and Blender — building immersive spatial experiences with real-time rendering and interaction-layer optimization.",
+    tags: ["ARKit", "RealityKit", "Unity", "Blender"],
+  },
+  {
+    dark: true,
+    kicker: "03 · Systems Thinking",
+    title: "Under 1 MB. Always.",
+    body: "C and C++ foundations. Kernel-level awareness. Every byte is a deliberate decision. Software that loads before the user perceives the wait.",
+    tags: ["C", "C++", "Kernel", "Performance"],
+  },
+  {
+    dark: false,
+    kicker: "04 · Cross-Platform",
+    title: "Kotlin, Flutter & Beyond",
+    body: "Android native engineering and cross-platform delivery without sacrificing the interaction quality that users expect from native products.",
+    tags: ["Kotlin", "Java", "Flutter", "Dart"],
+  },
+  {
+    dark: true,
+    kicker: "05 · Full-Stack",
+    title: "Web, Backend & SaaS",
+    body: "Next.js, Node.js, Django, Strapi. Scalable content architectures and high-performance web systems built for teams that keep shipping.",
+    tags: ["Next.js", "Python", "Strapi", "SaaS"],
+  },
+  {
+    dark: false,
+    kicker: "06 · Teaching",
+    title: "Mentoring at Zoople",
+    body: "iOS Development Instructor — structured curriculum for developers moving from basic delivery to high-performance native systems engineering.",
+    tags: ["iOS Curriculum", "Swift", "SwiftUI", "Kochi"],
+  },
+];
+
+const stats = [
+  { n: "30+",    label: "Technologies Mastered" },
+  { n: "2",      label: "Active Professional Roles" },
+  { n: "AR/VR",  label: "Spatial Computing Specialist" },
+  { n: "< 1 MB", label: "Target Delivery Footprint" },
+];
+
+const workflow = [
+  {
+    n: "01",
+    title: "Discovery & Constraint Mapping",
+    body: "Translate business requirements into technical constraints — payload targets, animation budget, and accessibility coverage before a line of code is written."
+  },
+  {
+    n: "02",
+    title: "Native-First Architecture",
+    body: "Choose platform APIs and low-level optimizations before introducing abstractions. Eliminate the performance tax from day one."
+  },
+  {
+    n: "03",
+    title: "Precision Build Loop",
+    body: "Iterate through profiling, memory checks, and code trimming until the software feels immediate — not just functional."
+  },
+  {
+    n: "04",
+    title: "Product Hardening",
+    body: "Finalize with semantic structure, technical SEO, and stable deployment practices for teams scaling beyond the first launch."
+  },
+];
+
+const services = [
+  {
+    title: "iOS & macOS Engineering",
+    body: "Native Swift and SwiftUI product builds for teams that need premium UX and enterprise reliability with zero compromise."
+  },
+  {
+    title: "AR/VR Experience Development",
+    body: "Immersive spatial layers using real-time rendering, ARKit, RealityKit, and 3D optimization workflows for production apps."
+  },
+  {
+    title: "Performance Architecture Audits",
+    body: "Payload reduction, runtime tuning, and architecture cleanup aligned with the Under 1MB philosophy. Measurably faster products."
+  },
+  {
+    title: "Technical Mentoring",
+    body: "Structured coaching for engineers moving from basic delivery to high-performance native systems — the same curriculum taught at Zoople."
+  },
+];
+---
+
+<BaseLayout
+  path="/"
+  title="Best Software Engineer in Kochi Kerala | CTO Adnora Solutions — Younuz Bin Noushad"
+  description="Younuz Bin Noushad — CTO Adnora Solutions, Founder Kochi.one, Co-founder Adnora Group. Best software engineer in Kochi, Kerala. iOS, AR/VR, SaaS, webapp & custom software."
+  faqItems={faqItems}
+>
+  <main>
+
+    <!-- ══════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════ -->
+    <section class="relative overflow-hidden">
+
+      <!-- Parallax orbs -->
+      <div class="parallax-orb parallax-fast"
+           style="width: 55vw; height: 55vw; top: -18%; right: -14%;"
+           aria-hidden="true"></div>
+      <div class="parallax-orb parallax-slow"
+           style="width: 36vw; height: 36vw; bottom: -8%; left: -7%;"
+           aria-hidden="true"></div>
+
+      <div class="shell relative" style="z-index: 1; padding: 7rem 0 6rem 0;">
+
+        <!-- ① Kicker bar — left label / right label -->
+        <div class="flex items-center justify-between fade-up" style="margin-bottom: 2.5rem;">
+          <span class="t-kicker">Senior Software Engineer</span>
+          <span class="t-kicker">Kochi · Kerala · India</span>
+        </div>
+
+        <!-- ② Display name — very large -->
+        <h1 class="t-display fade-up fade-up-1" style="margin: 0 0 1.75rem 0;">
+          Younuz Bin<br />Noushad
+        </h1>
+
+        <!-- ③ Expanding divider line -->
+        <div class="expand-line divider fade-up fade-up-2" style="margin-bottom: 3rem;"></div>
+
+        <!-- ④ Two-column: big subtitle + role cards -->
+        <div class="hero-split fade-up fade-up-3" style="margin-bottom: 4rem; align-items: stretch;">
+
+          <!-- Left: headline copy + illustration -->
+          <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;">
+            <div>
+              <p style="font-size: clamp(1.2rem, 2.4vw, 1.75rem); font-weight: 500; letter-spacing: -0.025em; line-height: 1.35; color: var(--gray-800); margin: 0 0 1.25rem 0;">
+                The Premier Software Engineer<br />in Kochi, Kerala.
+              </p>
+              <p class="t-body" style="max-width: 34rem; margin: 0;">
+                Crafting optimized, native ecosystem experiences. Specialist in AR, VR,
+                and "Invisible" Software built on Apple platform principles.
+              </p>
+            </div>
+            <!-- Illustration — white bg blends naturally with page -->
+            <div style="flex: 1; display: flex; align-items: flex-end;">
+              <picture>
+                <source srcset="/hero-illustration.avif" type="image/avif" />
+                <img
+                  src="/hero-illustration.jpg"
+                  alt="AR/VR developer illustration — person interacting with virtual screens and devices"
+                  width="520"
+                  height="520"
+                  loading="eager"
+                  decoding="async"
+                  style="width: 100%; max-width: 420px; height: auto; display: block; mix-blend-mode: multiply; opacity: 0.92;"
+                />
+              </picture>
+            </div>
+          </div>
+
+          <!-- Right: role cards -->
+          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <div class="hero-role-card">
+              <span class="t-kicker" style="margin-bottom: 0.5rem;">CTO</span>
+              <p style="font-size: 0.9375rem; font-weight: 600; margin: 0 0 0.2rem 0;">Chief Technology Officer</p>
+              <p class="t-micro" style="margin: 0;">Adnora Solutions · Kochi</p>
+            </div>
+            <div class="hero-role-card" style="background: var(--gray-50);">
+              <span class="t-kicker" style="margin-bottom: 0.5rem;">Founder</span>
+              <p style="font-size: 0.9375rem; font-weight: 600; margin: 0 0 0.2rem 0;">kochi.one</p>
+              <p class="t-micro" style="margin: 0;">Your Gateway to Everything Kochi</p>
+            </div>
+            <div class="hero-role-card" style="background: var(--gray-50);">
+              <span class="t-kicker" style="margin-bottom: 0.5rem;">Co-Founder</span>
+              <p style="font-size: 0.9375rem; font-weight: 600; margin: 0 0 0.2rem 0;">Adnora Group of Companies</p>
+              <p class="t-micro" style="margin: 0;">Enterprise group · Kochi, Kerala</p>
+            </div>
+            <div class="hero-role-card" style="background: var(--gray-50);">
+              <span class="t-kicker" style="margin-bottom: 0.5rem;">Software Engineer</span>
+              <p style="font-size: 0.9375rem; font-weight: 600; margin: 0 0 0.2rem 0;">WebCastle Media Pvt Ltd</p>
+              <p class="t-micro" style="margin: 0;">Enterprise software · Kochi</p>
+            </div>
+            <div class="hero-role-card" style="background: var(--gray-50);">
+              <span class="t-kicker" style="margin-bottom: 0.5rem;">iOS Instructor</span>
+              <p style="font-size: 0.9375rem; font-weight: 600; margin: 0 0 0.2rem 0;">Zoople Technologies</p>
+              <p class="t-micro" style="margin: 0;">Teaching iOS & Swift · Kochi</p>
+            </div>
+            <a href="/about/"
+               class="pill pill-dark"
+               style="padding: 0.65rem 1.25rem; font-size: 0.8125rem; justify-content: center; text-decoration: none; border-radius: var(--radius-sm);">
+              Get in Touch ↗
+            </a>
+          </div>
+
+        </div>
+
+        <!-- ⑤ Tech table — editorial category rows -->
+        <div class="fade-up fade-up-4" style="border-top: 1px solid var(--gray-200); padding-top: 2.25rem;">
+          <div class="tech-table">
+            {[
+              { label: "Core Apple",     items: ["Swift", "SwiftUI", "Objective-C", "iOS", "macOS"] },
+              { label: "Spatial",        items: ["ARKit", "RealityKit", "Unity", "Blender", "VR"] },
+              { label: "Systems",        items: ["C", "C++", "Kernel Optimization", "< 1 MB Rule"] },
+              { label: "Cross-Platform", items: ["Kotlin", "Java", "Flutter", "Dart"] },
+              { label: "Web & Backend",  items: ["Next.js", "Node.js", "Python", "Django", "Strapi"] },
+            ].map((row) => (
+              <div class="tech-row">
+                <span class="tech-row-label">{row.label}</span>
+                <span class="tech-row-items">{row.items.join("  ·  ")}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         MARQUEE STRIP
+    ══════════════════════════════════════════ -->
+    <div class="divider"></div>
+    <section class="bg-soft py-4" aria-label="Technology skills marquee">
+      <div class="marquee-wrap">
+        <div class="marquee-track">
+          {[...marqueeSkills, ...marqueeSkills].map((s) => (
+            <span style="display:inline-flex;align-items:center;font-size:0.8125rem;font-weight:500;color:var(--gray-400);padding:0 1.5rem;">
+              {s}<span style="margin-left:1.5rem;color:var(--gray-300);" aria-hidden="true">·</span>
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+    <div class="divider"></div>
+
+
+    <!-- ══════════════════════════════════════════
+         SKILLS BENTO
+    ══════════════════════════════════════════ -->
+    <section class="shell" style="padding: 7rem 0;">
+
+      <div class="scroll-reveal mb-12">
+        <span class="t-kicker mb-3">Expertise</span>
+        <h2 class="t-headline" style="max-width: 18ch;">The Matrix of Skills</h2>
+      </div>
+
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-3 scroll-stagger">
+
+        <article class="card p-7 md:col-span-2">
+          <span class="t-kicker mb-5">Core Apple</span>
+          <div class="grid grid-cols-2 gap-x-6 gap-y-5">
+            {coreApple.map((s) => (
+              <div>
+                <p class="font-semibold text-base m-0 mb-0.5">{s.title}</p>
+                <p class="t-micro m-0">{s.note}</p>
+              </div>
+            ))}
+          </div>
+        </article>
+
+        <article class="card-dark p-7 flex flex-col justify-between" style="min-height: 16rem;">
+          <div>
+            <span class="t-kicker mb-3" style="color:rgba(255,255,255,0.4);">Based in</span>
+            <p class="font-bold mb-1" style="font-size:1.375rem;color:white;">Kochi, Kerala</p>
+            <p style="font-size:0.8125rem;color:rgba(255,255,255,0.5);line-height:1.55;margin:0;">
+              Premier engineering hub<br />in South India
+            </p>
+          </div>
+          <div>
+            <p class="m-0" style="font-size:clamp(2rem,4vw,3rem);font-weight:900;letter-spacing:-0.05em;line-height:1;color:white;">30+</p>
+            <span style="font-size:0.65rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.4);">Technologies</span>
+          </div>
+        </article>
+
+        <article class="card-fill p-7">
+          <span class="t-kicker mb-5">AR/VR & 3D</span>
+          <ul class="m-0 p-0 list-none">
+            {arvr.map((s) => (
+              <li class="skill-row">
+                <span class="font-semibold text-sm">{s.title}</span>
+                <span class="t-micro">{s.note}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+
+        <article class="card p-7">
+          <span class="t-kicker mb-5">Low-Level</span>
+          <ul class="m-0 p-0 list-none">
+            {lowLevel.map((s) => (
+              <li class="skill-row">
+                <span class="font-semibold text-sm">{s.title}</span>
+                <span class="t-micro">{s.note}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+
+        <article class="card-fill p-7">
+          <span class="t-kicker mb-5">Full Stack</span>
+          <ul class="m-0 p-0 list-none">
+            {fullStack.map((s) => (
+              <li class="skill-row">
+                <span class="font-semibold text-sm">{s.title}</span>
+                <span class="t-micro">{s.note}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         BIG STATEMENT #1
+    ══════════════════════════════════════════ -->
+    <div class="divider"></div>
+    <section class="statement-section bg-soft">
+      <div class="shell">
+        <div class="scroll-reveal">
+          <span class="t-kicker mb-8">Philosophy</span>
+          <p class="t-statement progressive-line" style="max-width: 22ch; margin: 0;">
+            30+ technologies.<br />One&nbsp;philosophy.
+          </p>
+        </div>
+      </div>
+    </section>
+    <div class="divider"></div>
+
+
+    <!-- ══════════════════════════════════════════
+         HORIZONTAL PIN-SCROLL — CAPABILITY CARDS
+    ══════════════════════════════════════════ -->
+    <section id="h-scroll-section" class="h-pin-section bg-dark" style="height: 400vh;">
+      <div class="h-pin-sticky">
+
+        <!-- Header label fixed at top-left inside sticky zone -->
+        <div style="position:absolute;top:2.5rem;left:5vw;z-index:2;">
+          <span class="t-kicker" style="color:rgba(255,255,255,0.4);">Scroll to explore ↓</span>
+        </div>
+
+        <!-- Progress bar -->
+        <div id="h-progress-bar"
+             style="position:absolute;bottom:0;left:0;height:2px;background:rgba(255,255,255,0.2);width:0%;transition:width 60ms linear;z-index:2;"
+             aria-hidden="true"></div>
+
+        <div id="h-scroll-track" class="h-pin-track" style="transform: translateX(5vw);">
+          {pinCards.map((card) => (
+            <article
+              class="h-pin-card"
+              style={card.dark
+                ? "background:var(--black);border:1px solid rgba(255,255,255,0.1);"
+                : "background:var(--white);border:1px solid var(--gray-200);"
+              }
+            >
+              <div>
+                <span class="t-kicker mb-5"
+                      style={card.dark ? "color:rgba(255,255,255,0.38);" : ""}>
+                  {card.kicker}
+                </span>
+                <h3 style={`font-size:clamp(1.5rem,2.5vw,2.125rem);font-weight:700;letter-spacing:-0.03em;line-height:1.1;margin:0 0 1.25rem 0;${card.dark ? "color:white;" : ""}`}>
+                  {card.title}
+                </h3>
+                <p style={`font-size:0.9375rem;line-height:1.75;margin:0;${card.dark ? "color:rgba(255,255,255,0.55);" : "color:var(--gray-600);"}`}>
+                  {card.body}
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-2" style="margin-top:2rem;">
+                {card.tags.map((tag) => (
+                  <span style={`display:inline-flex;padding:0.3rem 0.75rem;border-radius:999px;font-size:0.6875rem;font-weight:600;${card.dark ? "border:1px solid rgba(255,255,255,0.14);color:rgba(255,255,255,0.65);" : "border:1px solid var(--gray-200);color:var(--gray-600);"}`}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         BIG STATEMENT #2 — MEGA TEXT
+    ══════════════════════════════════════════ -->
+    <section class="statement-section" style="padding: 8rem 0; overflow: hidden;">
+      <div class="shell">
+        <div class="scroll-reveal">
+          <span class="t-kicker mb-6">Delivery Target</span>
+        </div>
+      </div>
+      <!-- Full-bleed mega text — intentionally overflows slightly for drama -->
+      <div class="scroll-reveal" style="padding: 0 5vw;">
+        <p class="t-mega" style="color:var(--black);white-space:nowrap;overflow:hidden;text-overflow:clip;">
+          Under&nbsp;1&nbsp;MB.
+        </p>
+      </div>
+      <div class="shell" style="margin-top: 2.5rem;">
+        <p class="t-body scroll-reveal" style="max-width: 36rem;">
+          Not a constraint imposed from outside — a standard set from within. Every project ships
+          with the smallest possible footprint through native rendering, lean dependencies,
+          and C-level performance awareness.
+        </p>
+      </div>
+    </section>
+    <div class="divider"></div>
+
+
+    <!-- ══════════════════════════════════════════
+         STATS STRIP
+    ══════════════════════════════════════════ -->
+    <div class="bg-soft" style="border-bottom: 1px solid var(--gray-200);">
+      <div class="shell">
+        <div class="grid grid-cols-2 lg:grid-cols-4 scroll-stagger" style="gap:1px;background:var(--gray-200);">
+          {stats.map((s) => (
+            <div class="bg-soft py-12 px-8 count-line">
+              <p class="stat-n m-0 mb-1">{s.n}</p>
+              <p class="t-micro m-0">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════
+         PERFORMANCE PHILOSOPHY — DARK
+    ══════════════════════════════════════════ -->
+    <section class="bg-dark" style="padding: 8rem 0;">
+      <div class="shell">
+
+        <div class="scroll-reveal" style="margin-bottom: 4rem;">
+          <span class="t-kicker mb-6" style="color:rgba(255,255,255,0.4);">Philosophy</span>
+          <h2 style="font-size:clamp(2.5rem,5.5vw,5rem);font-weight:700;letter-spacing:-0.04em;line-height:1.0;color:white;max-width:22ch;margin:0 0 1.5rem 0;">
+            Software should be invisible.
+          </h2>
+          <p style="font-size:1.0625rem;line-height:1.8;color:rgba(255,255,255,0.55);max-width:38rem;margin:0;">
+            The Under 1MB Rule is a discipline, not a gimmick. By grounding architecture in
+            C-based systems thinking and native Apple APIs, each project minimizes payload,
+            memory churn, and render overhead. The result is software that feels instant —
+            immediate startup, smooth interactions, zero perceived latency.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4 scroll-stagger">
+          {[
+            { title: "Minimal Payload",     body: "Every byte is a deliberate decision. The target is software that loads before the user perceives the wait." },
+            { title: "Native Rendering",    body: "Direct platform APIs eliminate the abstraction tax. Smooth, consistent frame timing on every device tier." },
+            { title: "Stable Architecture", body: "Performance gains that survive feature additions. Engineered to remain fast long after the first release." },
+          ].map((c) => (
+            <div style="border:1px solid rgba(255,255,255,0.09);border-radius:1.25rem;padding:2rem;">
+              <h3 style="font-size:1rem;font-weight:600;color:white;margin:0 0 0.75rem 0;">{c.title}</h3>
+              <p style="font-size:0.875rem;color:rgba(255,255,255,0.5);margin:0;line-height:1.7;">{c.body}</p>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         BIG STATEMENT #3 — PROGRESSIVE REVEAL
+    ══════════════════════════════════════════ -->
+    <section class="statement-section" style="padding: 9rem 0;">
+      <div class="shell">
+        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <p class="t-statement progressive-line" style="margin:0;color:var(--black);">Native first.</p>
+          <p class="t-statement progressive-line" style="margin:0;color:var(--gray-400);">Performance always.</p>
+          <p class="t-statement progressive-line" style="margin:0;color:var(--black);">Built in Kochi.</p>
+        </div>
+      </div>
+    </section>
+    <div class="divider"></div>
+
+
+    <!-- ══════════════════════════════════════════
+         DARK MARQUEE STRIP (reverse direction)
+    ══════════════════════════════════════════ -->
+    <section class="bg-dark py-5" aria-hidden="true">
+      <div class="marquee-wrap">
+        <div class="marquee-dark-track">
+          {[...marqueeSkills, ...marqueeSkills].map((s) => (
+            <span style="display:inline-flex;align-items:center;font-size:0.8125rem;font-weight:500;color:rgba(255,255,255,0.3);padding:0 1.5rem;">
+              {s}<span style="margin-left:1.5rem;color:rgba(255,255,255,0.12);" aria-hidden="true">·</span>
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+    <div class="divider"></div>
+
+
+    <!-- ══════════════════════════════════════════
+         ENGINEERING PROCESS
+    ══════════════════════════════════════════ -->
+    <section class="shell" style="padding: 7rem 0;">
+
+      <div class="scroll-reveal" style="margin-bottom: 5rem;">
+        <span class="t-kicker mb-3">How Projects Are Built</span>
+        <h2 class="t-headline" style="max-width: 18ch;">Engineering Process</h2>
+      </div>
+
+      <div class="process-list">
+        {workflow.map((step) => (
+          <div class="process-row">
+            <div class="process-step-num">{step.n}</div>
+            <div class="process-connector" aria-hidden="true"></div>
+            <div class="process-content">
+              <h3 class="t-title mb-2">{step.title}</h3>
+              <p class="t-small m-0" style="max-width: 44rem;">{step.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         SERVICES
+    ══════════════════════════════════════════ -->
+    <div class="divider"></div>
+    <section class="bg-soft" style="padding: 7rem 0;">
+      <div class="shell">
+
+        <div class="scroll-reveal" style="margin-bottom: 4.5rem;">
+          <span class="t-kicker mb-3">Collaboration</span>
+          <h2 class="t-headline" style="max-width: 18ch;">Services & Work</h2>
+        </div>
+
+        <div class="service-list">
+          {services.map((svc, i) => (
+            <div class="service-row">
+              <div class="service-num">0{i + 1}</div>
+              <div>
+                <h3 style="font-size: clamp(1.2rem, 2.2vw, 1.625rem); font-weight: 600; letter-spacing: -0.02em; margin: 0 0 0.625rem 0;">
+                  {svc.title}
+                </h3>
+                <p class="t-small m-0" style="max-width: 46rem;">{svc.body}</p>
+              </div>
+              <div class="service-arrow" aria-hidden="true">↗</div>
+            </div>
+          ))}
+        </div>
+
+        <!-- CTA card -->
+        <div class="card-dark scroll-reveal" style="margin-top: 2.5rem; padding: 2.5rem 2.75rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem;">
+          <div>
+            <p style="font-size: 1.25rem; font-weight: 600; color: white; letter-spacing: -0.02em; margin: 0 0 0.375rem 0;">Ready to build something exceptional?</p>
+            <p style="font-size: 0.875rem; color: rgba(255,255,255,0.5); margin: 0;">Direct, honest project collaboration from Kochi.</p>
+          </div>
+          <a href="/about/"
+             style="display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.7rem 1.5rem; border-radius: 999px; background: white; color: black; font-size: 0.875rem; font-weight: 600; white-space: nowrap; transition: opacity 200ms; text-decoration: none;">
+            Get in Touch ↗
+          </a>
+        </div>
+
+      </div>
+    </section>
+    <div class="divider"></div>
+
+
+    <!-- ══════════════════════════════════════════
+         VENTURES & ENTREPRENEURSHIP
+    ══════════════════════════════════════════ -->
+    <div class="divider"></div>
+    <section class="shell" style="padding: 7rem 0;">
+
+      <div class="scroll-reveal" style="margin-bottom: 4.5rem;">
+        <span class="t-kicker mb-3">Entrepreneurship</span>
+        <h2 class="t-headline" style="max-width: 22ch;">Ventures & Companies</h2>
+        <p class="t-body" style="max-width: 38rem; margin-top: 1rem;">
+          Beyond engineering — founding and leading companies that shape Kochi's technology and city-life landscape.
+        </p>
+      </div>
+
+      <!-- Kochi.one — hero venture card (full-width dark) -->
+      <article class="card-dark scroll-reveal" style="padding: 3rem 3.25rem; margin-bottom: 1.25rem; position: relative; overflow: hidden;">
+        <!-- Decorative background text -->
+        <p aria-hidden="true" style="position:absolute;right:-1rem;top:-1.5rem;font-size:clamp(6rem,14vw,12rem);font-weight:900;letter-spacing:-0.06em;color:rgba(255,255,255,0.04);line-height:1;pointer-events:none;user-select:none;">
+          KOCHI
+        </p>
+        <div class="grid gap-8 relative" style="z-index:1;" >
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+            <div>
+              <span class="t-kicker mb-3" style="color:rgba(255,255,255,0.4);">Founder</span>
+              <h3 style="font-size:clamp(2rem,4vw,3.25rem);font-weight:700;letter-spacing:-0.035em;line-height:1.05;color:white;margin:0 0 0.75rem 0;">
+                kochi.one
+              </h3>
+              <p style="font-size:1.125rem;font-weight:500;color:rgba(255,255,255,0.7);margin:0;letter-spacing:-0.01em;">
+                Your Gateway to Everything Kochi
+              </p>
+            </div>
+            <a href="https://www.kochi.one" target="_blank" rel="noopener noreferrer"
+               style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.65rem 1.4rem;border-radius:999px;background:white;color:black;font-size:0.875rem;font-weight:600;white-space:nowrap;text-decoration:none;flex-shrink:0;transition:opacity 200ms;">
+              Visit Site ↗
+            </a>
+          </div>
+          <p style="font-size:1rem;line-height:1.75;color:rgba(255,255,255,0.55);max-width:52rem;margin:0;">
+            A city-wide digital platform covering events, tourism, dining, fitness, transit, and business intelligence
+            for Kochi, Kerala. Kochi.one connects residents and visitors to everything the city has to offer —
+            with a native mobile app and real-time city reports.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.625rem;">
+            {["City Platform", "Events", "Tourism", "Business", "Mobile App", "Kochi, Kerala"].map((tag) => (
+              <span style="display:inline-flex;padding:0.3rem 0.85rem;border-radius:999px;font-size:0.6875rem;font-weight:600;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.65);">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </article>
+
+      <!-- Adnora cards — two column -->
+      <div class="grid md:grid-cols-2 gap-4 scroll-stagger">
+
+        <!-- Adnora Solutions -->
+        <article class="card" style="padding: 2.5rem;">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.5rem;">
+            <div>
+              <span class="t-kicker mb-2">CTO</span>
+              <h3 style="font-size:1.625rem;font-weight:700;letter-spacing:-0.03em;line-height:1.1;margin:0;">
+                Adnora Solutions
+              </h3>
+            </div>
+            <span style="display:inline-flex;padding:0.3rem 0.85rem;border-radius:999px;font-size:0.6875rem;font-weight:600;background:var(--black);color:white;white-space:nowrap;flex-shrink:0;">
+              Best Tech Co. Kochi
+            </span>
+          </div>
+          <p class="t-small" style="margin:0 0 1.5rem 0;">
+            Chief Technology Officer at Adnora Solutions — the best technology company in Kochi, Kerala.
+            Delivering world-class webapp, mobile app, SaaS, and custom software development for businesses locally and globally.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+            {["Webapp Dev", "Mobile Apps", "SaaS", "Custom Software", "Kochi"].map((tag) => (
+              <span class="pill" style="font-size:0.6875rem;">{tag}</span>
+            ))}
+          </div>
+        </article>
+
+        <!-- Adnora Group -->
+        <article class="card-fill" style="padding: 2.5rem;">
+          <div style="margin-bottom:1.5rem;">
+            <span class="t-kicker mb-2">Co-Founder</span>
+            <h3 style="font-size:1.625rem;font-weight:700;letter-spacing:-0.03em;line-height:1.1;margin:0;">
+              Adnora Group
+            </h3>
+            <p style="font-size:0.8125rem;color:var(--gray-500);margin:0.25rem 0 0 0;">of Companies</p>
+          </div>
+          <p class="t-small" style="margin:0 0 1.5rem 0;">
+            Co-founded the Adnora Group of Companies — a multi-vertical enterprise group operating out of Kochi, Kerala.
+            Building scalable businesses that leverage technology, product thinking, and deep local market knowledge.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+            {["Enterprise Group", "Multi-Vertical", "Kochi", "Entrepreneur"].map((tag) => (
+              <span class="pill" style="font-size:0.6875rem;">{tag}</span>
+            ))}
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Entrepreneur identity strip -->
+      <div class="card-dark scroll-reveal" style="margin-top:1.25rem;padding:2rem 2.5rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.25rem;">
+        <div style="display:flex;flex-wrap:wrap;gap:2rem;">
+          {[
+            { n: "3+", label: "Active Ventures" },
+            { n: "CTO", label: "Adnora Solutions" },
+            { n: "Founder", label: "Kochi.one" },
+            { n: "Co-Founder", label: "Adnora Group" },
+          ].map((item) => (
+            <div>
+              <p style="font-size:1.25rem;font-weight:700;letter-spacing:-0.03em;color:white;margin:0 0 0.125rem 0;">{item.n}</p>
+              <p style="font-size:0.6875rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin:0;">{item.label}</p>
+            </div>
+          ))}
+        </div>
+        <a href="/about/"
+           style="display:inline-flex;align-items:center;gap:0.375rem;padding:0.65rem 1.5rem;border-radius:999px;background:white;color:black;font-size:0.875rem;font-weight:600;white-space:nowrap;text-decoration:none;transition:opacity 200ms;">
+          Let's Work Together ↗
+        </a>
+      </div>
+
+    </section>
+    <div class="divider"></div>
+
+
+    <!-- ══════════════════════════════════════════
+         CLOSING STATEMENT
+    ══════════════════════════════════════════ -->
+    <section class="shell" style="padding: 9rem 0;">
+      <div class="scroll-reveal">
+
+        <span class="t-kicker mb-6">Building from Kochi</span>
+
+        <h2 style="font-size:clamp(2rem,4.5vw,3.75rem);font-weight:700;line-height:1.08;letter-spacing:-0.03em;max-width:26ch;margin:0 0 1.5rem 0;">
+          Global engineering standards,<br />delivered from Kerala.
+        </h2>
+
+        <p class="t-body mb-12" style="max-width:40rem;">
+          Kochi is becoming one of India's strongest software engineering hubs. Products built here
+          can and should compete globally — through performance discipline, native execution, and
+          architectural clarity.
+        </p>
+
+        <div class="flex flex-wrap gap-3">
+          <a href="/projects/" class="pill pill-dark" style="padding:0.65rem 1.4rem;font-size:0.875rem;">
+            View Projects ↗
+          </a>
+          <a href="/about/" class="pill" style="padding:0.65rem 1.4rem;font-size:0.875rem;">
+            About & Contact ↗
+          </a>
+          <!-- WhatsApp CTA for Kerala/India clients -->
+          <a href="https://wa.me/message/younuzbn" target="_blank" rel="noopener noreferrer"
+             class="pill"
+             style="padding:0.65rem 1.4rem;font-size:0.875rem;display:inline-flex;align-items:center;gap:0.5rem;"
+             aria-label="Chat on WhatsApp">
+            <span aria-hidden="true">💬</span> WhatsApp
+          </a>
+        </div>
+
+      </div>
+    </section>
+    <div class="divider"></div>
+
+
+    <!-- ══════════════════════════════════════════
+         TESTIMONIALS
+    ══════════════════════════════════════════ -->
+    <section class="shell" style="padding: 7rem 0;">
+      <div class="scroll-reveal" style="margin-bottom: 4rem;">
+        <span class="t-kicker mb-3">Social Proof</span>
+        <h2 class="t-headline" style="max-width: 22ch;">What clients & students say</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-4 scroll-stagger" itemscope itemtype="https://schema.org/Review">
+        {testimonials.map((t) => (
+          <article class="card-fill" style="padding: 2rem; display: flex; flex-direction: column; gap: 1.25rem;">
+            <div style="font-size: 2rem; line-height: 1; color: var(--gray-300);" aria-hidden="true">"</div>
+            <blockquote style="margin: 0; font-size: 0.9375rem; line-height: 1.75; color: var(--gray-800); flex: 1;" itemprop="reviewBody">
+              {t.quote}
+            </blockquote>
+            <footer>
+              <p style="font-size: 0.8125rem; font-weight: 600; margin: 0 0 0.125rem 0;" itemprop="author">{t.author}</p>
+              <p style="font-size: 0.6875rem; color: var(--gray-400); margin: 0;">{t.location}</p>
+            </footer>
+          </article>
+        ))}
+      </div>
+    </section>
+    <div class="divider"></div>
+
+
+    <!-- ══════════════════════════════════════════
+         FAQ — Schema-rich section
+    ══════════════════════════════════════════ -->
+    <section class="shell" style="padding: 7rem 0;" itemscope itemtype="https://schema.org/FAQPage">
+      <div class="scroll-reveal" style="margin-bottom: 4rem;">
+        <span class="t-kicker mb-3">FAQ</span>
+        <h2 class="t-headline" style="max-width: 26ch;">Frequently Asked Questions</h2>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--gray-200);">
+        {faqItems.map((faq, i) => (
+          <details
+            class="scroll-reveal"
+            style={`border-bottom: 1px solid var(--gray-200); padding: 1.5rem 0; animation-delay: ${i * 60}ms;`}
+            itemscope
+            itemprop="mainEntity"
+            itemtype="https://schema.org/Question"
+          >
+            <summary
+              style="font-size: 1rem; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem;"
+              itemprop="name"
+            >
+              {faq.question}
+              <span aria-hidden="true" style="font-size: 1.25rem; color: var(--gray-400); flex-shrink: 0;">+</span>
+            </summary>
+            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text" style="font-size: 0.9375rem; line-height: 1.75; color: var(--gray-600); margin: 1rem 0 0 0; max-width: 56rem;">
+                {faq.answer}
+              </p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>
+
+<!-- ══════════════════════════════════════════
+     Horizontal pin-scroll engine (~180 bytes)
+══════════════════════════════════════════ -->
+<script is:inline>
+  (function () {
+    var section  = document.getElementById("h-scroll-section");
+    var track    = document.getElementById("h-scroll-track");
+    var bar      = document.getElementById("h-progress-bar");
+    if (!section || !track) return;
+
+    function update() {
+      var rect        = section.getBoundingClientRect();
+      var sectionH    = section.offsetHeight - window.innerHeight;
+      if (rect.top > 0 || rect.bottom < window.innerHeight) return;
+
+      var progress    = Math.min(1, Math.max(0, -rect.top / sectionH));
+      var maxSlide    = -(track.scrollWidth - window.innerWidth + window.innerWidth * 0.1);
+      track.style.transform = "translateX(calc(5vw + " + (progress * maxSlide) + "px))";
+      if (bar) bar.style.width = (progress * 100) + "%";
+    }
+
+    window.addEventListener("scroll",  update, { passive: true });
+    window.addEventListener("resize",  update, { passive: true });
+    update();
+  })();
+
+  /* Parallax scroll tracker */
+  (function () {
+    var root = document.documentElement;
+    function tick() { root.style.setProperty("--scroll-y", window.scrollY + "px"); }
+    window.addEventListener("scroll", tick, { passive: true });
+  })();
+</script>

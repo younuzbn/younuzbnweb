@@ -1,0 +1,379 @@
+---
+import { ClientRouter } from "astro:transitions";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  path?: string;
+  breadcrumbs?: { name: string; item: string }[];
+  faqItems?: { question: string; answer: string }[];
+}
+
+const {
+  title = "Best Software Engineer in Kochi Kerala | CTO Adnora Solutions — Younuz Bin Noushad",
+  description = "Younuz Bin Noushad (younuzbn) — CTO Adnora Solutions, Founder Kochi.one, Co-founder Adnora Group. Best software engineer in Kochi, Kerala. iOS, AR/VR, SaaS, webapp & custom software development.",
+  path = "/",
+  breadcrumbs = [],
+  faqItems = [],
+} = Astro.props;
+
+const siteUrl = "https://younuzbn.dev";
+const canonical = new URL(path, Astro.site);
+const ogImage = new URL("/og-default.svg", Astro.site);
+
+const technologyMatrix = [
+  "Swift",
+  "SwiftUI",
+  "Objective-C",
+  "Xcode",
+  "iOS Development",
+  "macOS Development",
+  "Kernel-level optimization",
+  "ARKit",
+  "RealityKit",
+  "Augmented Reality",
+  "Virtual Reality",
+  "3D Application Development",
+  "Game Development",
+  "Unity",
+  "Blender",
+  "Kotlin",
+  "Java",
+  "Flutter",
+  "Dart",
+  "Next.js",
+  "Node.js",
+  "Python",
+  "Django",
+  "JavaScript",
+  "Strapi",
+  "SaaS Architecture",
+  "C++",
+  "C#",
+  "C",
+  "Software Performance Optimization"
+];
+
+// ── GeoCoordinates for Kochi ─────────────────────────────────────────────────
+const geoKochi = { "@type": "GeoCoordinates", latitude: 9.9312, longitude: 76.2673 };
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Younuz Bin Noushad",
+  alternateName: ["younuzbn", "Muhammed Younus PM", "Noushad"],
+  jobTitle: [
+    "CTO at Adnora Solutions",
+    "Senior Software Engineer",
+    "iOS Specialist",
+    "Entrepreneur"
+  ],
+  description:
+    'Younuz Bin Noushad (younuzbn) — CTO at Adnora Solutions (best tech company in Kochi), Founder of Kochi.one, Co-founder of Adnora Group of Companies. Expert in AR/VR, native Apple Ecosystem (iOS/macOS), SaaS, webapp, mobile app, and high-performance "Under 1MB" custom software. Recognized as the best software engineer in Kochi, Kerala.',
+  worksFor: [
+    {
+      "@type": "Organization",
+      name: "Adnora Solutions",
+      description: "Best tech company in Kochi — webapp, mobile app, SaaS, and custom software development",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Kochi",
+        addressRegion: "Kerala",
+        addressCountry: "India"
+      }
+    },
+    {
+      "@type": "Organization",
+      name: "WebCastle Media Pvt Ltd"
+    }
+  ],
+  founder: [
+    {
+      "@type": "Organization",
+      name: "Kochi.one",
+      url: "https://www.kochi.one",
+      description: "Your Gateway to Everything Kochi — city discovery platform covering events, tourism, business, and services in Kochi, Kerala"
+    },
+    {
+      "@type": "Organization",
+      name: "Adnora Group of Companies",
+      description: "Enterprise group of companies co-founded by Younuz Bin Noushad, based in Kochi, Kerala"
+    }
+  ],
+  alumniOf: {
+    "@type": "EducationalOrganization",
+    name: "Zoople Technologies"
+  },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Infopark, Kakkanad",
+    addressLocality: "Kochi",
+    addressRegion: "Kerala",
+    postalCode: "682030",
+    addressCountry: "IN"
+  },
+  geo: geoKochi,
+  url: siteUrl,
+  image: `${siteUrl}/og-default.svg`,
+  knowsAbout: technologyMatrix,
+  hasOccupation: [
+    {
+      "@type": "Occupation",
+      name: "Chief Technology Officer",
+      occupationLocation: { "@type": "City", name: "Kochi" },
+      description: "CTO at Adnora Solutions, the best tech company in Kochi, Kerala"
+    },
+    {
+      "@type": "Occupation",
+      name: "Software Engineer",
+      occupationLocation: { "@type": "City", name: "Kochi" }
+    },
+    {
+      "@type": "Occupation",
+      name: "iOS Development Instructor",
+      occupationLocation: { "@type": "City", name: "Kochi" }
+    }
+  ],
+  sameAs: [
+    "https://github.com/younuzbn",
+    "https://www.linkedin.com/in/younuzbn/",
+    "https://stackoverflow.com/users/18603530/younuzbn",
+    "https://www.kochi.one"
+  ]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Adnora Solutions — Best Tech Company in Kochi",
+  description:
+    'Adnora Solutions, led by CTO Younuz Bin Noushad, is the best tech company in Kochi, Kerala. Specializing in webapp development, mobile app development, SaaS products, and custom software development for businesses globally.',
+  provider: {
+    "@type": "Person",
+    name: "Younuz Bin Noushad"
+  },
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Kochi"
+    },
+    {
+      "@type": "State",
+      name: "Kerala"
+    },
+    {
+      "@type": "Country",
+      name: "India"
+    }
+  ],
+  knowsAbout: technologyMatrix,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Infopark, Kakkanad",
+    addressLocality: "Kochi",
+    addressRegion: "Kerala",
+    postalCode: "682030",
+    addressCountry: "IN"
+  },
+  geo: geoKochi,
+  telephone: "mailto:younuzbn@gmail.com",
+  url: siteUrl,
+  priceRange: "$$",
+  currenciesAccepted: "INR, USD",
+  paymentAccepted: "Bank Transfer, UPI",
+  openingHours: "Mo-Fr 09:00-18:00",
+  serviceType: [
+    "Web Application Development",
+    "Mobile App Development",
+    "iOS App Development",
+    "Android App Development",
+    "SaaS Development",
+    "Custom Software Development",
+    "AR/VR Development",
+    "Software Consulting"
+  ]
+};
+
+// ── Breadcrumb Schema ────────────────────────────────────────────────────────
+const breadcrumbSchema = breadcrumbs.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+    ...breadcrumbs.map((b, i) => ({
+      "@type": "ListItem",
+      position: i + 2,
+      name: b.name,
+      item: `${siteUrl}${b.item}`
+    }))
+  ]
+} : null;
+
+// ── FAQ Schema ───────────────────────────────────────────────────────────────
+const faqSchema = faqItems.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((f) => ({
+    "@type": "Question",
+    name: f.question,
+    acceptedAnswer: { "@type": "Answer", text: f.answer }
+  }))
+} : null;
+---
+
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+    <!-- ── Primary SEO ──────────────────────────────── -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonical.toString()} />
+    <meta name="author" content="Younuz Bin Noushad" />
+    <meta name="keywords" content="best software engineer kochi, best software engineer kerala, younuzbn, Younuz Bin Noushad, CTO Kochi, Adnora Solutions, kochi.one founder, iOS developer kochi, AR VR developer kochi, SaaS company kochi, custom software kochi, webapp development kochi, mobile app development kerala, software company infopark kakkanad" />
+
+    <!-- ── Geo / Local SEO ──────────────────────────── -->
+    <meta name="geo.region" content="IN-KL" />
+    <meta name="geo.placename" content="Kochi, Kerala, India" />
+    <meta name="geo.position" content="9.9312;76.2673" />
+    <meta name="ICBM" content="9.9312, 76.2673" />
+
+    <!-- ── Open Graph ───────────────────────────────── -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical.toString()} />
+    <meta property="og:image" content={ogImage.toString()} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Younuz Bin Noushad — Best Software Engineer in Kochi, Kerala" />
+    <meta property="og:site_name" content="Younuz Bin Noushad" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- ── Twitter Card ─────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@younuzbn" />
+    <meta name="twitter:creator" content="@younuzbn" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage.toString()} />
+    <meta name="twitter:image:alt" content="Younuz Bin Noushad — Best Software Engineer in Kochi" />
+
+    <!-- ── PWA / App Meta ───────────────────────────── -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Younuzbn" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+    <!-- ── Preconnect ───────────────────────────────── -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://github.com" />
+
+    <!-- ── Security / Performance ───────────────────── -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-DNS-Prefetch-Control" content="on" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+
+    <!-- ── Structured Data ──────────────────────────── -->
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+    {breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
+    {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+
+    <ClientRouter />
+  </head>
+  <body>
+    <!-- ── Navigation ────────────────────────── -->
+    <header class="nav-outer">
+      <div class="nav-bg">
+        <div class="shell">
+          <nav aria-label="Primary" class="flex items-center justify-between py-3.5">
+            <a href="/" class="font-bold text-sm tracking-tight">Younuzbn</a>
+            <ul class="flex list-none items-center gap-6 m-0 p-0">
+              <li><a href="/" class="text-sm font-medium" style="color: var(--gray-600);">Home</a></li>
+              <li><a href="/projects/" class="text-sm font-medium" style="color: var(--gray-600);">Projects</a></li>
+              <li><a href="/about/" class="text-sm font-medium" style="color: var(--gray-600);">About</a></li>
+              <li>
+                <a href="mailto:younuzbn@gmail.com?subject=Project%20Inquiry" class="pill pill-dark" style="padding: 0.35rem 1rem;">
+                  Hire Me
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- ── Page Content ──────────────────────── -->
+    <slot />
+
+    <!-- ── Footer ───────────────────────────── -->
+    <footer class="bg-soft" style="border-top: 1px solid var(--gray-200);" itemscope itemtype="https://schema.org/WPFooter">
+      <div class="shell py-10">
+        <div class="flex flex-wrap items-start justify-between gap-8">
+          <div>
+            <p class="font-semibold text-sm m-0 mb-1" itemprop="name">Younuz Bin Noushad</p>
+            <p class="t-micro m-0 mb-0.5" style="color: var(--gray-500);">CTO · Adnora Solutions · Kochi, Kerala</p>
+            <p class="t-micro m-0 mb-0.5" style="color: var(--gray-500);">Founder · kochi.one</p>
+            <p class="t-micro m-0" style="color: var(--gray-400);">
+              <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <span itemprop="streetAddress">Infopark, Kakkanad</span>,&nbsp;
+                <span itemprop="addressLocality">Kochi</span>,&nbsp;
+                <span itemprop="addressRegion">Kerala</span>&nbsp;682030,&nbsp;
+                <span itemprop="addressCountry">India</span>
+              </span>
+            </p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-end;">
+            <div class="flex flex-wrap gap-5 justify-end">
+              <a href="https://github.com/younuzbn" target="_blank" rel="noopener noreferrer me" aria-label="Younuz on GitHub" class="t-micro" style="color: var(--gray-500);">GitHub ↗</a>
+              <a href="https://www.linkedin.com/in/younuzbn/" target="_blank" rel="noopener noreferrer me" aria-label="Younuz on LinkedIn" class="t-micro" style="color: var(--gray-500);">LinkedIn ↗</a>
+              <a href="https://stackoverflow.com/users/18603530/younuzbn" target="_blank" rel="noopener noreferrer me" aria-label="Younuz on Stack Overflow" class="t-micro" style="color: var(--gray-500);">Stack Overflow ↗</a>
+              <a href="https://www.kochi.one" target="_blank" rel="noopener noreferrer" aria-label="kochi.one — founded by Younuz" class="t-micro" style="color: var(--gray-500);">kochi.one ↗</a>
+            </div>
+            <nav aria-label="Footer navigation">
+              <div class="flex flex-wrap gap-5 justify-end">
+                <a href="/" class="t-micro" style="color: var(--gray-400);">Home</a>
+                <a href="/projects/" class="t-micro" style="color: var(--gray-400);">Projects</a>
+                <a href="/about/" class="t-micro" style="color: var(--gray-400);">About</a>
+                <a href="mailto:younuzbn@gmail.com" class="t-micro" style="color: var(--gray-400);">Email</a>
+              </div>
+            </nav>
+          </div>
+        </div>
+        <hr class="divider my-6" />
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <p class="t-micro m-0" style="color: var(--gray-400);">
+            © 2026 Younuz Bin Noushad · Best Software Engineer in Kochi, Kerala · Built with Astro 5 + Tailwind CSS v4.
+          </p>
+          <p class="t-micro m-0" style="color: var(--gray-400);">
+            <a href="/sitemap-index.xml" class="t-micro" style="color: var(--gray-400);">Sitemap</a>
+            &nbsp;·&nbsp;
+            <a href="/robots.txt" class="t-micro" style="color: var(--gray-400);">Robots</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ── Parallax scroll tracker (< 150 bytes) ── -->
+    <script>
+      (function () {
+        var root = document.documentElement;
+        function tick() { root.style.setProperty("--scroll-y", window.scrollY + "px"); }
+        window.addEventListener("scroll", tick, { passive: true });
+      })();
+    </script>
+  </body>
+</html>

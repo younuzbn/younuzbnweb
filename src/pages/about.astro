@@ -1,0 +1,267 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const experience = [
+  {
+    company: "Adnora Solutions",
+    role: "Chief Technology Officer (CTO)",
+    location: "Kochi, Kerala",
+    tag: "CTO",
+    tagDark: true,
+    body: "Leading technology strategy, architecture, and product delivery at Adnora Solutions — the best tech company in Kochi. Overseeing webapp, mobile app, SaaS, and custom software development for clients across industries."
+  },
+  {
+    company: "Kochi.one",
+    role: "Founder",
+    location: "Kochi, Kerala",
+    tag: "Founder",
+    tagDark: true,
+    body: "Founded kochi.one — a city-wide digital platform and Your Gateway to Everything Kochi. Covers events, tourism, dining, fitness, transit, and business intelligence. Built with a native mobile app and real-time city reporting."
+  },
+  {
+    company: "Adnora Group of Companies",
+    role: "Co-Founder",
+    location: "Kochi, Kerala",
+    tag: "Co-Founder",
+    tagDark: false,
+    body: "Co-founded the Adnora Group of Companies — a multi-vertical enterprise group based in Kochi, Kerala. Driving growth across technology, product, and business divisions with a focus on scalable, market-ready ventures."
+  },
+  {
+    company: "WebCastle Media Pvt Ltd",
+    role: "Software Engineer",
+    location: "Kochi, Kerala",
+    tag: "Engineering",
+    tagDark: false,
+    body: "Delivering enterprise-grade, high-performance software with a strong focus on runtime efficiency, UX clarity, and stable architecture. Native Apple ecosystem products built to global performance benchmarks."
+  },
+  {
+    company: "Zoople Technologies",
+    role: "iOS Development Instructor",
+    location: "Kochi, Kerala",
+    tag: "Teaching",
+    tagDark: false,
+    body: "Mentoring the next generation of iOS developers through structured, production-focused Swift and SwiftUI curriculum. Bringing real-world engineering discipline into an academic training environment."
+  },
+];
+
+const techGroups = [
+  { label: "Apple Platform", items: ["Swift", "SwiftUI", "Objective-C", "Xcode", "iOS", "macOS"] },
+  { label: "Spatial Computing", items: ["ARKit", "RealityKit", "VR", "Unity", "Blender"] },
+  { label: "Systems", items: ["C", "C++", "C#", "Kernel Optimization"] },
+  { label: "Cross-Platform", items: ["Kotlin", "Java", "Flutter", "Dart"] },
+  { label: "Web & Backend", items: ["Next.js", "Node.js", "Python", "Django", "Strapi"] },
+];
+
+const values = [
+  { title: "Performance First",    body: "Every technical decision is evaluated against its runtime cost. Invisible software is the goal." },
+  { title: "Native Over Abstract", body: "Platform APIs before frameworks. The abstraction tax is real — pay it only when necessary." },
+  { title: "Teach What You Build", body: "Engineering clarity that can be explained, measured, and passed on to the next developer." },
+  { title: "Build for Longevity",  body: "Architecture that remains maintainable after the first release, for teams that keep shipping." },
+];
+
+const contactLinks = [
+  { label: "Email",         href: "mailto:younuzbn@gmail.com?subject=Project%20Inquiry%20from%20Portfolio", display: "younuzbn@gmail.com" },
+  { label: "GitHub",        href: "https://github.com/younuzbn",                                          display: "github.com/younuzbn" },
+  { label: "LinkedIn",      href: "https://www.linkedin.com/in/younuzbn/",                               display: "linkedin.com/in/younuzbn" },
+  { label: "Stack Overflow", href: "https://stackoverflow.com/users/18603530/younuzbn",                  display: "stackoverflow.com/users/younuzbn" },
+];
+---
+
+<BaseLayout
+  title="About Younuz Bin Noushad | CTO Adnora Solutions · Best Engineer Kochi Kerala"
+  description="Younuz Bin Noushad — CTO Adnora Solutions, Founder Kochi.one, iOS expert, AR/VR developer. The best software engineer in Kochi, Kerala. Based at Infopark, Kakkanad."
+  path="/about/"
+  breadcrumbs={[{ name: "About", item: "/about/" }]}
+>
+  <main>
+
+    <!-- ══════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════ -->
+    <section class="relative overflow-hidden" style="min-height: 62vh; display: flex; align-items: center;">
+
+      <div class="parallax-orb parallax-fast"
+           style="width: 55vw; height: 55vw; top: -20%; left: -18%;"
+           aria-hidden="true"></div>
+
+      <div class="shell py-24 relative" style="z-index: 1; width: 100%;">
+        <span class="t-kicker fade-up mb-5">Entrepreneur · Engineer · Educator</span>
+        <h1 class="t-display fade-up fade-up-1 mb-6">About</h1>
+        <p class="t-body fade-up fade-up-2" style="max-width: 44rem;">
+          CTO at Adnora Solutions · Founder of Kochi.one · Co-Founder of Adnora Group of Companies ·
+          Software Engineer at WebCastle · iOS Instructor at Zoople Technologies.
+          Building companies and products from Kochi, Kerala.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         EXPERIENCE CARDS
+    ══════════════════════════════════════════ -->
+    <div class="divider"></div>
+    <section class="shell py-20">
+
+      <div class="scroll-reveal mb-10">
+        <span class="t-kicker mb-3">Experience</span>
+        <h2 class="t-headline" style="max-width: 18ch;">Roles & Responsibilities</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4 scroll-stagger">
+        {experience.map((exp) => (
+          <article class={exp.tagDark ? "card-dark p-8" : "card p-8"}>
+            <div class="flex items-start justify-between gap-3 mb-4">
+              <div>
+                <p style={`font-size: 1.125rem; font-weight: 600; letter-spacing: -0.015em; margin: 0 0 0.25rem 0; ${exp.tagDark ? "color: white;" : ""}`}>
+                  {exp.company}
+                </p>
+                <p style={`font-size: 0.875rem; margin: 0; ${exp.tagDark ? "color: rgba(255,255,255,0.55);" : "color: var(--gray-500);"}`}>
+                  {exp.role} · {exp.location}
+                </p>
+              </div>
+              <span style={`display: inline-flex; padding: 0.3rem 0.75rem; border-radius: 999px; font-size: 0.6875rem; font-weight: 600; white-space: nowrap; flex-shrink: 0; ${exp.tagDark ? "background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.8);" : "background: var(--gray-100); color: var(--gray-600); border: 1px solid var(--gray-200);"}`}>
+                {exp.tag}
+              </span>
+            </div>
+            <p style={`font-size: 0.9375rem; line-height: 1.75; margin: 0; ${exp.tagDark ? "color: rgba(255,255,255,0.6);" : "color: var(--gray-600);"}`}>
+              {exp.body}
+            </p>
+          </article>
+        ))}
+      </div>
+
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         BIO — EDITORIAL SECTION
+    ══════════════════════════════════════════ -->
+    <div class="bg-soft" style="border-top: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200);">
+      <div class="shell py-20">
+
+        <div class="grid lg:grid-cols-2 gap-16 scroll-reveal">
+          <div>
+            <span class="t-kicker mb-5">Entrepreneur</span>
+            <h2 class="t-headline mb-6" style="max-width: 18ch;">Founding Companies,<br />Building Kochi</h2>
+            <p class="t-body mb-4">
+              Beyond engineering — Younuz co-founded the Adnora Group of Companies and serves as CTO
+              at Adnora Solutions, the best tech company in Kochi. The company delivers webapp, mobile
+              app, SaaS, and custom software development for clients globally.
+            </p>
+            <p class="t-body mb-4">
+              As the founder of <a href="https://www.kochi.one" target="_blank" rel="noopener noreferrer" style="font-weight:600;border-bottom:1px solid currentColor;">kochi.one</a>, he built a city-wide digital platform — Your Gateway to
+              Everything Kochi — connecting residents and visitors to events, tourism, dining, transit, and business
+              intelligence across the city.
+            </p>
+            <p class="t-body m-0">
+              A true entrepreneur: starting ventures that create real impact for Kochi, while maintaining engineering
+              excellence as the foundation of every product.
+            </p>
+          </div>
+          <div>
+            <span class="t-kicker mb-5">Kochi & Kerala Context</span>
+            <h2 class="t-headline mb-6" style="max-width: 18ch;">Engineering<br />for a Growing Hub</h2>
+            <p class="t-body mb-4">
+              Kochi and the wider Kerala ecosystem — spanning Kakkanad's Infopark, Edappally, Kalamassery,
+              Thrissur, and Calicut — are rapidly scaling in product ambition. Companies here are no longer
+              just service delivery arms; they're building SaaS products, native apps, and platforms that
+              compete globally.
+            </p>
+            <p class="t-body m-0">
+              Through <strong>Adnora Solutions</strong>, <strong>kochi.one</strong>, and direct engineering work at WebCastle
+              and Zoople Technologies, the mission is clear: position Kochi as a region where elite software
+              engineering standards and ambitious product thinking are not just possible, but expected.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════
+         VALUES
+    ══════════════════════════════════════════ -->
+    <section class="shell py-20">
+
+      <div class="scroll-reveal mb-10">
+        <span class="t-kicker mb-3">Principles</span>
+        <h2 class="t-headline" style="max-width: 18ch;">Engineering Values</h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 scroll-stagger">
+        {values.map((v) => (
+          <article class="card-fill p-6">
+            <p style="font-size: 1rem; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 0.625rem 0;">{v.title}</p>
+            <p class="t-small m-0">{v.body}</p>
+          </article>
+        ))}
+      </div>
+
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         TECHNOLOGY MAP
+    ══════════════════════════════════════════ -->
+    <div class="divider"></div>
+    <section class="bg-soft py-20">
+      <div class="shell">
+
+        <div class="scroll-reveal mb-10">
+          <span class="t-kicker mb-3">Technology</span>
+          <h2 class="t-headline" style="max-width: 18ch;">Full Skill Map</h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 scroll-stagger">
+          {techGroups.map((g) => (
+            <article class="card p-6">
+              <span class="t-kicker mb-4">{g.label}</span>
+              <div class="flex flex-wrap gap-2">
+                {g.items.map((item) => (
+                  <span class="pill">{item}</span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+
+      </div>
+    </section>
+    <div class="divider"></div>
+
+
+    <!-- ══════════════════════════════════════════
+         CONTACT — DARK SECTION
+    ══════════════════════════════════════════ -->
+    <section class="bg-dark py-24">
+      <div class="shell">
+
+        <div class="scroll-reveal mb-14">
+          <span class="t-kicker mb-5" style="color: rgba(255,255,255,0.4);">Get in Touch</span>
+          <h2 style="font-size: clamp(2.25rem, 4.5vw, 3.75rem); font-weight: 700; letter-spacing: -0.035em; line-height: 1.05; color: white; max-width: 22ch; margin: 0 0 1rem 0;">
+            Open to strategic collaborations.
+          </h2>
+          <p style="font-size: 1.0625rem; line-height: 1.8; color: rgba(255,255,255,0.55); max-width: 36rem; margin: 0;">
+            Available for performance-critical app engineering, architecture consultation, and technical
+            mentoring where software quality and speed are top priorities. No agencies, no middlemen.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-3 scroll-stagger" style="max-width: 42rem;">
+          {contactLinks.map((link) => (
+            <a href={link.href}
+               target={link.href.startsWith("http") ? "_blank" : undefined}
+               rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+               style="display: flex; flex-direction: column; gap: 0.375rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 1.25rem; padding: 1.5rem; transition: background 250ms, border-color 250ms; text-decoration: none; opacity: 1;">
+              <span style="font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4);">{link.label}</span>
+              <span style="font-size: 0.9375rem; font-weight: 500; color: white;">{link.display}</span>
+            </a>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>

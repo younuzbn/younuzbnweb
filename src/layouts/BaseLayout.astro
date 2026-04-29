@@ -83,9 +83,23 @@ const personSchema = {
         addressCountry: "India"
       }
     },
+  ],
+  hasWorkedFor: [
     {
-      "@type": "Organization",
-      name: "WebCastle Media Pvt Ltd"
+      "@type": "OrganizationRole",
+      roleName: "Software Engineer",
+      worksFor: {
+        "@type": "Organization",
+        name: "WebCastle Media Pvt Ltd"
+      }
+    },
+    {
+      "@type": "OrganizationRole",
+      roleName: "iOS Development Instructor",
+      worksFor: {
+        "@type": "Organization",
+        name: "Zoople Technologies"
+      }
     }
   ],
   founder: [
@@ -101,8 +115,8 @@ const personSchema = {
       description: "Enterprise group of companies co-founded by Younuz Bin Noushad, based in Kochi, Kerala"
     }
   ],
-  alumniOf: {
-    "@type": "EducationalOrganization",
+  affiliation: {
+    "@type": "Organization",
     name: "Zoople Technologies"
   },
   address: {
